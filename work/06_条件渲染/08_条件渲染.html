@@ -18,13 +18,30 @@
 
 <div id="demo">
   <h1>测试: 切换一个元素</h1>
+  <p v-if="ok">我喜欢你</p>
+  <p v-else>你喜欢我</p>
+
+  <p v-show="ok">来自尚硅谷的你</p>
 
   <h1>测试: 切换多个元素</h1>
 
+  <template v-if="ok">
+    <h2>xxxx</h2>
+    <h2>yyyy</h2>
+    <h2>zzzzz</h2>
+  </template>
+
+  <button @click="ok=!ok">切换</button>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el : '#demo',
+    data : {
+      ok: false
+    }
+  })
 </script>
 </body>
 </html>

@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>07_Class与Style绑定</title>
+  <style>
+    .classA {
+      color: red;
+    }
+    .classB {
+      background: yellow;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,10 +24,26 @@
 -->
 
 <div id="demo">
+  <p class="classB" :class="a">测试v-bind:class 变量语法</p>
+  <p :class="{classA:isA, classB:isB}">测试v-bind:class 对象语法</p>
+  <p :class="['classA', classB]">测试v-bind:class 数组语法</p>
+
+  <p :style="{ color: activeColor, fontSize: fontSize + 'px' }">测试v-bind:style</p>
 </div>
 
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
+  new Vue({
+    el : '#demo',
+    data : {
+      a: 'classA',
+      isA: false,
+      isB: true,
+      classB: 'classB',
+      activeColor: 'green',
+      fontSize: 30
+    }
+  })
 </script>
 </body>
 </html>
